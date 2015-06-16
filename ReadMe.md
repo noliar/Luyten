@@ -1,5 +1,10 @@
-Luyten
+Luyten [![Build Status][status]][artifacts] [![Release](https://img.shields.io/github/release/deathmarine/Luyten.svg?style=flat-square)][release]
 ======
+[status]: https://img.shields.io/appveyor/ci/sephz/Luyten/master.svg?style=flat-square
+<!-- [status]: https://ci.appveyor.com/api/projects/status/github/noliar/Luyten?branch=master&svg=true -->
+[artifacts]: https://ci.appveyor.com/project/sephz/Luyten/build/artifacts "Right-click to download"
+[release]: https://github.com/deathmarine/Luyten/releases/latest "Right-click to download"
+
 **One of the Best**  
 Java Decompiler Gui for Procyon  
 Apache License, Version 2.0

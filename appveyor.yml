@@ -1,0 +1,18 @@
+version: $(LUYTEN_VERSION).{build}
+environment:
+  LUYTEN_VERSION: 0.4.5
+  MVN_VERSION: 3.3.1
+  JAVA_HOME: C:\Program Files\Java\jdk1.7.0
+install:
+- set PATH=%PATH%;C:\bin\apache-maven-%MVN_VERSION%\bin
+- IF NOT exist "C:\bin\apache-maven-%MVN_VERSION%\bin\*.*" (echo Maven %MVN_VERSION% not installed, so install it & cinst maven -Version %MVN_VERSION%) ELSE (echo  Maven %MVN_VERSION% already installed)
+cache:
+- C:\bin\apache-maven-%MVN_VERSION% -> appveyor.yml
+- C:\Users\appveyor\.m2\repository -> pom.xml
+build_script:
+- mvn clean package
+artifacts:
+- path: target/luyten-$(LUYTEN_VERSION).exe
+  name: Luyten $(LUYTEN_VERSION) exe
+- path: target/luyten-$(LUYTEN_VERSION).jar
+  name: Luyten $(LUYTEN_VERSION) jar
