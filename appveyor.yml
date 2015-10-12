@@ -1,9 +1,9 @@
-version: $(LUYTEN_VERSION).{build}
+version: Build {build}
 environment:
-  LUYTEN_VERSION: 0.4.5
   MVN_VERSION: 3.3.1
   JAVA_HOME: C:\Program Files\Java\jdk1.7.0
 install:
+- for /f %%i in ('python -c "from xml.dom import minidom;xmldoc=minidom.parse('pom.xml');print(xmldoc.getElementsByTagName('version')[0].firstChild.nodeValue)"') do set LUYTEN_VERSION=%%i
 - set PATH=%PATH%;C:\bin\apache-maven-%MVN_VERSION%\bin
 - IF NOT exist "C:\bin\apache-maven-%MVN_VERSION%\bin\*.*" (echo Maven %MVN_VERSION% not installed, so install it & cinst maven -Version %MVN_VERSION%) ELSE (echo  Maven %MVN_VERSION% already installed)
 cache:
